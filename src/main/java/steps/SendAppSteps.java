@@ -42,7 +42,7 @@ public class SendAppSteps {
     }
 
     @Step
-    public String getErrorMessageField(String field) {
+    public String getErrorMessageField() {
         return new SendAppPage().getFieldErrorMessage();
     }
 
