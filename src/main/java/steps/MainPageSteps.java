@@ -10,7 +10,7 @@ public class MainPageSteps {
     }
 
     @Step("выбран вид страхования {0}")
-    public void selectMenuInsurance(String menuItem) {
+    public void selectMenuInsurance() {
         new MainPage().selectInsuranceItem();
     }
 

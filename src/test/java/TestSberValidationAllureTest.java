@@ -49,7 +49,7 @@ public class TestSberValidationAllureTest {
         testData.put("Кем выдан", "Паспортный стол");
 
         mainPageSteps.selectMenuItem();
-        mainPageSteps.selectMenuInsurance("Страхование путешественников");
+        mainPageSteps.selectMenuInsurance();
         sberSteps.checkPageTitle();
         sberSteps.goToPolicyPage();
         policySteps.selectMinimal();
