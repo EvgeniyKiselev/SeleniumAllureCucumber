@@ -40,5 +40,4 @@ public class BasePage {
     public void checkFillField(String value, WebElement element) {
         assertEquals(value, element.getAttribute("value"));
     }
-
 }
