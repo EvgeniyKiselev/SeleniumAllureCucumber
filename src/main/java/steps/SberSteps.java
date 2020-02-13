@@ -3,7 +3,6 @@ package steps;
 import io.qameta.allure.Step;
 import pages.SberPage;
 
-
 import static org.junit.Assert.assertTrue;
 
 public class SberSteps {

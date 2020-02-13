@@ -1,6 +1,8 @@
 package util;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import java.util.concurrent.TimeUnit;
 
 public class Init {
@@ -8,7 +10,7 @@ public class Init {
 
     public static TestProperties properties = TestProperties.getInstance();
 
-    public static void initDriver(){
+    public static void initDriver() {
         System.setProperty("webdriver.chrome.driver", properties.getProperties("webdriver.chrome.driver"));
 
         driver = new ChromeDriver();
@@ -18,13 +20,14 @@ public class Init {
         driver.get(properties.getProperties("url"));
     }
 
-    public static WebDriver getDriver(){
-        if(driver == null){
+    public static WebDriver getDriver() {
+        if (driver == null) {
             initDriver();
         }
         return driver;
     }
-    public static void closeDriver(){
+
+    public static void closeDriver() {
         driver.close();
     }
 }

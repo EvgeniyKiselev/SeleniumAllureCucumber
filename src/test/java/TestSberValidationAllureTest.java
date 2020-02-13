@@ -1,12 +1,6 @@
-import com.google.common.collect.SortedSetMultimap;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.MainPage;
-import pages.PolicyPage;
-import pages.SberPage;
-import pages.SendAppPage;
 import steps.*;
 import util.Init;
 
@@ -16,15 +10,15 @@ import static util.Init.initDriver;
 
 public class TestSberValidationAllureTest {
 
-    MainPageSteps mainPageSteps = new MainPageSteps();
-    SberSteps sberSteps = new SberSteps();
-    PolicySteps policySteps = new PolicySteps();
-    SendAppSteps sendAppSteps = new SendAppSteps();
+    private MainPageSteps mainPageSteps = new MainPageSteps();
+    private SberSteps sberSteps = new SberSteps();
+    private PolicySteps policySteps = new PolicySteps();
+    private SendAppSteps sendAppSteps = new SendAppSteps();
 
-    LinkedHashMap<String, String> testData = new LinkedHashMap<>();
+    private LinkedHashMap<String, String> testData = new LinkedHashMap<>();
 
     @Before
-    public void setUp(){
+    public void setUp() {
         initDriver();
     }
 
@@ -34,7 +28,7 @@ public class TestSberValidationAllureTest {
     }
 
     @Test
-    public void testSberInsurance()  throws Exception {
+    public void testSberInsurance() {
 
         testData.put("Фамилия застрахованного", "Prokofiev");
         testData.put("Имя застрахованного", "Sergey");

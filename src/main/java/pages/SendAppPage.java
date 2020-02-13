@@ -1,69 +1,59 @@
 package pages;
 
-import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import steps.BaseSteps;
-import util.Init;
 
 import static util.Init.getDriver;
 
 public class SendAppPage extends BasePage {
     @FindBy(xpath = "//div[contains(@class, 'active') and contains(., 'Оформление')]")
-    WebElement navMenu;
+    private WebElement navMenu;
 
     @FindBy(xpath = "//input[@id = 'surname_vzr_ins_0']")
-    WebElement insuredLastName;
+    private WebElement insuredLastName;
 
     @FindBy(xpath = "//input[@id = 'name_vzr_ins_0']")
-    WebElement insuredName;
+    private WebElement insuredName;
 
     @FindBy(xpath = "//input[@id = 'birthDate_vzr_ins_0']")
-    WebElement insuredDateOfBirth;
+    private WebElement insuredDateOfBirth;
 
     @FindBy(xpath = "//input[@id = 'person_lastName']")
-    WebElement payerLastName;
+    private WebElement payerLastName;
 
     @FindBy(xpath = "//input[@id = 'person_firstName']")
-    WebElement payerName;
+    private WebElement payerName;
 
     @FindBy(xpath = "//input[@id = 'person_middleName']")
-    WebElement payerMiddleName;
+    private WebElement payerMiddleName;
 
     @FindBy(xpath = "//input[@id = 'person_birthDate']")
-    WebElement payerDateOfBirth;
+    private WebElement payerDateOfBirth;
 
     @FindBy(xpath = "//input[@id = 'passportSeries']")
-    WebElement docSeries;
+    private WebElement docSeries;
 
     @FindBy(xpath = "//input[@id = 'passportNumber']")
-    WebElement docNumber;
+    private WebElement docNumber;
 
     @FindBy(xpath = "//input[@id = 'documentDate']")
-    WebElement docDate;
+    private WebElement docDate;
 
     @FindBy(xpath = "//input[@id = 'documentIssue']")
-    WebElement docIssue;
+    private WebElement docIssue;
 
     @FindBy(xpath = "//button[contains(text(), 'Продолжить')]")
-    WebElement sendButton;
+    private WebElement sendButton;
 
     @FindBy(xpath = "//div[@class ='alert-form alert-form-error']")
-    WebElement validationMessage;
+    private WebElement validationMessage;
 
     public SendAppPage() {
         this.driver = getDriver();
     }
 
-    public void waitNavClickable(){
-        Wait<WebDriver> wait = new WebDriverWait(getDriver(), 5, 1000);
-        wait.until(ExpectedConditions.visibilityOf(navMenu));
+    public void waitNavVisible() {
+        waitForElement(navMenu);
     }
 
     public void fillField(String fieldName, String value) {
@@ -132,12 +122,6 @@ public class SendAppPage extends BasePage {
                 return docIssue.getAttribute("value");
         }
         throw new AssertionError("Поле не объявлено на странице");
-    }
-
-    public void checkFieldErrorMessage(String field, String errorMessage) {
-        String actualValue = getFieldErrorMessage();
-        Assert.assertTrue(String.format("Получено значение [%s]. Ожидалось [%s]", actualValue, errorMessage),
-                actualValue.contains(errorMessage));
     }
 
     public String getFieldErrorMessage() {
